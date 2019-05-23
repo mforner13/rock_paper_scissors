@@ -10,50 +10,41 @@ def outcome_correct_format(player_one, player_two):
     else:
         pass
 
-def comparator(player_one:str, player_two:str):
-    return None
 
+def comparator(player_one, player_two):
 
-def play_1_rock(response):
-    if response == "scissors":
-        print("Player 1 wins this round")
-    elif response == "paper":
-        print("Player 2 wins this round")
-    elif response == "rock":
-        print("It's a draw")
+    if player_one == player_two:
+        print("It's a draw!")
+        return 0
     else:
         pass
 
-def play_1_scissors(response):
-    if response == "paper":
-        print("Player 1 wins this round")
-    elif response == "rock":
-        print("Player 2 wins this round")
-    elif response == "scissors":
-        print("It's a draw")
-    else:
-        pass
+    if player_one == "rock":
+        if player_two == "scissors":
+            print("Player 1 wins this round")
+            return 1
+        elif player_two == "paper":
+            print("Player 2 wins this round")
+            return 2
+        else:
+            pass
 
-def play_1_paper(response):
-    if response == "rock":
-        print("Player 1 wins this round")
-    elif response == "scissors":
-        print("Player 1 wins this round")
-    elif response == "paper":
-        print("It's a draw")
-    else:
-        pass
+    if player_one == "scissors":
+        if player_two == "paper":
+            print("Player 1 wins this round")
+            return 1
+        elif player_two == "rock":
+            print("Player 2 wins this round")
+            return 2
+        else:
+            pass
 
-"""if player_1_response == "rock":
-    play_1_rock(player_2_response)
-elif player_1_response == "scissors":
-    play_1_scissors(player_2_response)
-elif player_1_response == "paper":
-    play_1_paper(player_2_response)
-else:
-    print("Sorry, please enter either rock, paper or scissors.")"""
-
-
-
-
-#new_game = input("Do you want to play again? ").lower()
+    if player_one == "paper":
+        if player_two == "rock":
+            print("Player 1 wins this round")
+            return 1
+        elif player_two == "scissors":
+            print("Player 2 wins this round")
+            return 2
+        else:
+            pass
