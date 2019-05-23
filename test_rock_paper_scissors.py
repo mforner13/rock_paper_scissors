@@ -2,10 +2,20 @@ from rock_paper_scissors import *
 
 import pytest
 
-def test_rock_beats_scissors():
-    rock_input = "rock"
-    scissors_input = "scissors"
-    play_1_rock(scissors_input)
-    assert output == "Player 1 wins this round"
+@pytest.mark.parametrize("player_one_move, player_two_move, winner", [
+    ("rock", "scissors", 1),
+    ("rock", "paper", 2),
+    ("rock", "rock", 0),
+])
+def test_comparator(player_one_move, player_two_move, winner):
+    assert comparator(player_one_move, player_two_move) == winner
+
+
+class TestInputOutcome:  #Ask Jonathan why it needed the same arguments as parametrize when not in a class
+    def test_outcome_correct_format(self):
+        assert outcome_correct_format("rock", "paaaper") == 1
+
+
+
 
 
