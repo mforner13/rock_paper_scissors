@@ -2,9 +2,16 @@ from rock_paper_scissors import *
 
 import pytest
 
-class TestInputOutcome:  #Ask Jonathan why it needed the same arguments as parametrize when not in a class
-    def test_outcome_correct_format(self):
-        assert outcome_correct_format("rock", "paaaper") == 1
+@pytest.mark.parametrize("player_input, expected_output", [
+    ("rock", True),
+    ("paper", True),
+    ("scissors", True),
+    (12, False),
+    ("sdlfsdg", False),
+])
+def test_input_validator(player_input, expected_output):
+    assert input_validator(player_input) is expected_output
+
 
 @pytest.mark.parametrize("player_one_move, player_two_move, winner", [
     ("rock", "scissors", 1),
@@ -15,6 +22,6 @@ def test_comparator(player_one_move, player_two_move, winner):
     assert comparator(player_one_move, player_two_move) == winner
 
 
-
-
-
+class TestMain:
+    def test_main(self, monkeypatch):
+        monkeypatch.setattr()
